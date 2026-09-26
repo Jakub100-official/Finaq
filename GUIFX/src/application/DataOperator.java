@@ -10,13 +10,13 @@ public class DataOperator {
 	private String ID = "";
 	private Connection connection;
 	private Statement st = null;
-	private String host = "2.tcp.eu.ngrok.io";
+	private String host = "ngrok support";
 
 	//Connects to the MySQL database
 	protected DataOperator(String UserName, String Password) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://"+host+":22920/finaq", UserName, Password);
+			connection = DriverManager.getConnection("jdbc:mysql://"+host+":0000/finaq", UserName, Password);
 			st=connection.createStatement();
 			System.out.println("Connected: "+connection.isValid(0));
 			
