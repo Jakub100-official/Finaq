@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="frame" minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="990.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Pane layoutX="-7.0" layoutY="-1.0" prefWidth="281.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="561.0" layoutX="1.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="263.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Circle fill="#f6f8fa" layoutX="40.0" layoutY="42.0" onMouseClicked="#profileB" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#03c900" layoutX="58.0" layoutY="59.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="nameL" alignment="CENTER" layoutX="74.0" layoutY="14.0" onMouseClicked="#profileB" prefHeight="28.0" prefWidth="138.0" text="Joe Swanson" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="92.0" layoutY="41.0" onMouseClicked="#profileB" prefHeight="18.0" prefWidth="102.0" text="Premium Account" textFill="#0a00bf" />
+            <Label fx:id="synchL" layoutX="74.0" layoutY="61.0" onMouseClicked="#profileB" prefHeight="18.0" prefWidth="185.0" text="Last sync: 10:45 7/31/2026" textFill="#818181" />
+            <Button layoutX="165.0" layoutY="27.0" mnemonicParsing="false" onAction="#settingsB" prefHeight="31.0" prefWidth="114.0" style="-fx-background-color: transparent;" text=" Settings" textFill="#f7f2f2" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView id="savingsI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@settings_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <VBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="84.0" prefHeight="477.0" prefWidth="254.0" spacing="35.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#dashboardB" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: transparent;" text=" Dashboard" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="dashboardMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/home_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#incomeB" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: transparent;" text=" Income" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="incomeMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/income_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#expensesB" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: transparent;" text=" Expenses" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="expensesMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/expenses_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#savingsB" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: transparent;" text=" Savings" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="savingsMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/savings_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#budgetingB" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: transparent;" text=" Budgeting" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="budgetingMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/budget_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#advisorB" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: transparent;" text=" AI Advisor" textFill="#f7f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView id="advisorMI" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Finaq/advisor_i.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane id="dashboard_pane" layoutX="263.0" layoutY="-1.0" prefHeight="562.0" prefWidth="726.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="-6.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="73.0" layoutY="218.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="270.0" layoutY="218.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="81.0" layoutY="231.0" prefHeight="17.0" prefWidth="185.0" text="Total Savings" textFill="#f7f5f5" />
+            <Label fx:id="totalSavings1L" alignment="CENTER" layoutX="78.0" layoutY="254.0" prefHeight="46.0" prefWidth="185.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="73.0" layoutY="115.0" strokeType="INSIDE" width="195.0">
+               <stroke>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.33725491166114807" blue="0.41960784792900085" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </stroke></Rectangle>
+            <Label alignment="CENTER" layoutX="86.0" layoutY="128.0" prefHeight="17.0" prefWidth="175.0" text="Total balance" textFill="#f7f5f5" />
+            <Label fx:id="totalBalance1L" alignment="CENTER" layoutX="74.0" layoutY="151.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="#00ff22">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView id="cash_flow_i" fx:id="totalBalance1I" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/rise_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="270.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="275.0" layoutY="129.0" prefHeight="17.0" prefWidth="185.0" text="Total Debt" textFill="#f7f5f5" />
+            <Label fx:id="totalDebt1L" alignment="CENTER" layoutX="268.0" layoutY="152.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Dashboard" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Organize your finances with Finaq" textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="281.0" layoutY="231.0" prefHeight="17.0" prefWidth="175.0" text="Total Yearly Expenses" textFill="#f7f5f5" />
+            <Label fx:id="totalYearlyExpenses1L" alignment="CENTER" layoutX="271.0" layoutY="254.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="26.0" layoutY="335.0" prefHeight="17.0" prefWidth="303.0" text="Recent Transactions" textFill="#f7f5f5" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="362.0" prefHeight="199.0" prefWidth="338.0">
+               <content>
+                  <VBox id="recentTransVB" fx:id="recentTransVB" prefHeight="200.0" prefWidth="323.0" style="-fx-background-color: #0a0a0a;" />
+               </content>
+            </ScrollPane>
+            <Label alignment="CENTER" layoutX="378.0" layoutY="335.0" prefHeight="17.0" prefWidth="324.0" text="Upcoming Bills" textFill="#f7f5f5" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="466.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="466.0" layoutY="218.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="471.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0" text="Financial Health Score" textFill="#f7f5f5" />
+            <Label fx:id="financialHealthL" alignment="CENTER" layoutX="471.0" layoutY="152.0" prefHeight="46.0" prefWidth="185.0" text="N/A" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="471.0" layoutY="231.0" prefHeight="17.0" prefWidth="185.0" text="Annual Cash Flow" textFill="#f7f5f5" />
+            <Label fx:id="cashFlow1L" alignment="CENTER" layoutX="471.0" layoutY="254.0" prefHeight="46.0" prefWidth="185.0" text="\$0" textFill="#00ff22">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView id="cash_flow_i" fx:id="cashFlow1I" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/rise_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" layoutX="378.0" layoutY="362.0" prefHeight="199.0" prefWidth="338.0">
+               <content>
+                  <VBox id="upcommingBillsVB" fx:id="upcommingBillsVB" prefHeight="200.0" prefWidth="323.0" style="-fx-background-color: #0a0a0a;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane id="income_pane" layoutX="255.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="17.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="423.0" />
+            <LineChart id="incomeC" fx:id="incomeC" layoutX="14.0" layoutY="368.0" prefHeight="180.0" prefWidth="414.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label layoutX="33.0" layoutY="351.0" prefHeight="17.0" prefWidth="138.0" text="Personal Income Graph" textFill="#faf9f9" />
+            <Button layoutX="374.0" layoutY="341.0" mnemonicParsing="false" onAction="#allIncomeB" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="ALL" textFill="#cccbcb" />
+            <Button layoutX="331.0" layoutY="341.0" mnemonicParsing="false" onAction="#yearIncomeB" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="1Y" textFill="#cccbcb" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="451.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
+            <Label layoutX="472.0" layoutY="351.0" prefHeight="17.0" prefWidth="122.0" text="Income sources" textFill="#faf8f8" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0abd" height="206.0" layoutX="451.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
+            <Label layoutX="473.0" layoutY="138.0" prefHeight="17.0" prefWidth="195.0" text="Income Change Approximation" textFill="#faf8f8" />
+            <Label id="incomeAproxiL" fx:id="incomeChangeApproximationL" alignment="CENTER" layoutX="473.0" layoutY="157.0" prefHeight="166.0" prefWidth="221.0" text="We currently don't have enough data about your finances to approximate your income change." textAlignment="CENTER" textFill="#8e86ff" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TableView id="incomeSourcesT" fx:id="incomeSourcesT" layoutX="462.0" layoutY="380.0" prefHeight="155.0" prefWidth="245.0" style="-fx-background-color: transparent;">
+              <columns>
+                <TableColumn fx:id="sourceCol" prefWidth="110.400146484375" resizable="false" style="-fx-background-color: transparent; -fx-allignment: center;" text="Income Source" />
+                <TableColumn fx:id="amountCol" maxWidth="100000.0" prefWidth="133.00006103515625" resizable="false" style="-fx-background-color: transparent;" text="Amount" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="253.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="278.0" layoutY="138.0" prefHeight="17.0" prefWidth="129.0" text="Annual Income" textFill="#f7f5f5" />
+            <Label fx:id="annualIncomeL" alignment="CENTER" layoutX="263.0" layoutY="161.0" prefHeight="46.0" prefWidth="158.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="253.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="278.0" layoutY="248.0" prefHeight="17.0" prefWidth="129.0" text="Monthly Income" textFill="#f7f5f5" />
+            <Label fx:id="monthlyIncomeL" alignment="CENTER" layoutX="263.0" layoutY="271.0" prefHeight="46.0" prefWidth="158.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="33.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="40.0" layoutY="138.0" prefHeight="17.0" prefWidth="185.0" text="Total Balance" textFill="#f7f5f5" />
+            <Label fx:id="totalBalanceL" alignment="CENTER" layoutX="34.0" layoutY="161.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="#00ff22">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView id="cash_flow_i" fx:id="totalBalanceI" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/rise_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Button alignment="CENTER_RIGHT" layoutX="571.0" layoutY="18.0" mnemonicParsing="false" onAction="#addIncomesB" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;" text=" Add Incomes" textFill="#faf5f5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView id="addIncomeI" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/add_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="33.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Income" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Be on top of your regular earnings and other sources of income." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="38.0" layoutY="247.0" prefHeight="17.0" prefWidth="185.0" text="Annual Cash Flow" textFill="#f7f5f5" />
+            <Label fx:id="cashFlowL" alignment="CENTER" layoutX="38.0" layoutY="270.0" prefHeight="46.0" prefWidth="185.0" text="\$0" textFill="#00ff22">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView id="cash_flow_i" fx:id="cashFlowI" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/rise_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="expenses_pane" layoutX="256.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="741.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="388.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
+            <LineChart id="expensesC" fx:id="expensesC" layoutX="386.0" layoutY="158.0" prefHeight="180.0" prefWidth="332.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </LineChart>
+            <Label layoutX="399.0" layoutY="140.0" prefHeight="17.0" prefWidth="148.0" text="Personal Expense Graph" textFill="#faf9f9" />
+            <Button layoutX="664.0" layoutY="131.0" mnemonicParsing="false" onAction="#allExpensesB" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="ALL" textFill="#cccbcb" />
+            <Button layoutX="621.0" layoutY="131.0" mnemonicParsing="false" onAction="#yearExpensesB" prefHeight="38.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="1Y" textFill="#cccbcb" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="15.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="711.0" />
+            <Label layoutX="36.0" layoutY="348.0" prefHeight="17.0" prefWidth="122.0" text="Expenses" textFill="#faf8f8" />
+            <TableView fx:id="expensesT" layoutX="16.0" layoutY="377.0" prefHeight="155.0" prefWidth="711.0" style="-fx-background-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="dateET" prefWidth="123.199951171875" resizable="false" style="-fx-background-color: light gray;" text="Date" />
+                  <TableColumn fx:id="categoryET" prefWidth="111.20001220703125" resizable="false" style="-fx-background-color: light gray;" text="Category" />
+                  <TableColumn fx:id="descriptionET" prefWidth="128.0" resizable="false" style="-fx-background-color: light gray;" text="Description" />
+                  <TableColumn fx:id="paymentET" prefWidth="117.60003662109375" resizable="false" style="-fx-background-color: light gray;" text="Payment" />
+                  <TableColumn fx:id="amountET" prefWidth="126.39990234375" resizable="false" style="-fx-background-color: light gray;" text="Amount " />
+                  <TableColumn fx:id="statusET" prefWidth="107.2000732421875" resizable="false" style="-fx-background-color: light gray;" text="Status" />
+               </columns>
+            </TableView>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="202.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="207.0" layoutY="142.0" prefHeight="17.0" prefWidth="166.0" text="Av/Day" textFill="#f7f5f5" />
+            <Label fx:id="avDayL" alignment="CENTER" layoutX="200.0" layoutY="165.0" prefHeight="46.0" prefWidth="175.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="203.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="228.0" layoutY="250.0" prefHeight="17.0" prefWidth="129.0" text="Total Debt" textFill="#f7f5f5" />
+            <Label fx:id="totalDebtL" alignment="CENTER" layoutX="213.0" layoutY="273.0" prefHeight="46.0" prefWidth="158.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="140.0" prefHeight="17.0" prefWidth="185.0" text="This Month" textFill="#f7f5f5" />
+            <Label fx:id="thisMonthL" alignment="CENTER" layoutX="1.0" layoutY="163.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER_RIGHT" layoutX="569.0" layoutY="18.0" mnemonicParsing="false" onAction="#addExpensesB" prefHeight="31.0" prefWidth="148.0" style="-fx-background-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;" text=" Add Expenses" textFill="#faf5f5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView id="addExpensesI" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/add_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="2.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="250.0" prefHeight="17.0" prefWidth="185.0" text="This Year" textFill="#f7f5f5" />
+            <Label fx:id="thisYearL" alignment="CENTER" layoutX="10.0" layoutY="273.0" prefHeight="46.0" prefWidth="185.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Expenses" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Keep track of your investments and other expenses." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="savings_pane" layoutX="256.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="213.0" layoutX="388.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
+            <Label layoutX="409.0" layoutY="138.0" prefHeight="17.0" prefWidth="148.0" text="Saving Goals" textFill="#faf9f9" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="205.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="230.0" layoutY="138.0" prefHeight="17.0" prefWidth="129.0" text="Savings Rate" textFill="#f7f5f5" />
+            <Label fx:id="savingsRateL" alignment="CENTER" layoutX="215.0" layoutY="161.0" prefHeight="46.0" prefWidth="158.0" text="0%" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="205.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="230.0" layoutY="248.0" prefHeight="17.0" prefWidth="129.0" text="Goal Completion" textFill="#f7f5f5" />
+            <Label fx:id="goalCompletionL" alignment="CENTER" layoutX="215.0" layoutY="271.0" prefHeight="46.0" prefWidth="158.0" text="0%" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="138.0" prefHeight="17.0" prefWidth="185.0" text="Total Saved" textFill="#f7f5f5" />
+            <Label fx:id="totalSavedL" alignment="CENTER" layoutX="1.0" layoutY="161.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER_RIGHT" layoutX="583.0" layoutY="18.0" mnemonicParsing="false" onAction="#addSavingsB" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;" text=" Add Savings" textFill="#faf5f5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView id="addSavingsI" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/add_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="2.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="248.0" prefHeight="17.0" prefWidth="185.0" text="Projected Savings Total" textFill="#f7f5f5" />
+            <Label fx:id="projectedSavingsTotalL" alignment="CENTER" layoutY="271.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Savings" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Plan your goals and invest in yourself." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <BarChart fx:id="savingsC" layoutX="388.0" layoutY="160.0" prefHeight="180.0" prefWidth="338.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="12.0" layoutY="342.0" stroke="BLACK" strokeType="INSIDE" width="711.0" />
+            <Label layoutX="32.0" layoutY="352.0" prefHeight="17.0" prefWidth="122.0" text="Saving goals" textFill="#faf8f8" />
+            <TableView fx:id="savingsT" layoutX="12.0" layoutY="381.0" prefHeight="155.0" prefWidth="711.0" style="-fx-background-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="goalST" prefWidth="133.5999755859375" resizable="false" style="-fx-background-color: light gray;" text="Goal" />
+                  <TableColumn fx:id="categoryST" prefWidth="152.800048828125" resizable="false" style="-fx-background-color: light gray;" text="Category" />
+                  <TableColumn fx:id="savedST" prefWidth="158.39996337890625" resizable="false" style="-fx-background-color: light gray;" text="Saved" />
+                  <TableColumn fx:id="targetST" prefWidth="145.60003662109375" resizable="false" style="-fx-background-color: light gray;" text="Target" />
+                  <TableColumn fx:id="progressST" minWidth="0.0" prefWidth="120.7999267578125" resizable="false" style="-fx-background-color: light gray;" text="Progress" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane id="budgeting_pane" layoutX="256.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="-1.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="266.0" layoutX="388.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="338.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="203.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="228.0" layoutY="138.0" prefHeight="17.0" prefWidth="129.0" text="Used" textFill="#f7f5f5" />
+            <Label fx:id="usedL" alignment="CENTER" layoutX="213.0" layoutY="161.0" prefHeight="46.0" prefWidth="158.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="203.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
+            <Label alignment="CENTER" layoutX="228.0" layoutY="248.0" prefHeight="17.0" prefWidth="129.0" text="Remaining" textFill="#f7f5f5" />
+            <Label fx:id="remainingL" alignment="CENTER" layoutX="213.0" layoutY="271.0" prefHeight="46.0" prefWidth="158.0" text="\$0" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="138.0" prefHeight="17.0" prefWidth="185.0" text="Income" textFill="#f7f5f5" />
+            <Label fx:id="incomeL" alignment="CENTER" layoutX="1.0" layoutY="161.0" prefHeight="46.0" prefWidth="195.0" text="\$0" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0a0a0a" height="93.0" layoutX="2.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Label alignment="CENTER" layoutX="7.0" layoutY="248.0" prefHeight="17.0" prefWidth="185.0" text="Budget Health" textFill="#f7f5f5" />
+            <Label fx:id="budgetHealthL" alignment="CENTER" layoutX="10.0" layoutY="271.0" prefHeight="46.0" prefWidth="185.0" text="N/A" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Budgeting" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Good budgeting is key for your financial success." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0b0b0b" height="206.0" layoutX="11.0" layoutY="342.0" stroke="BLACK" strokeType="INSIDE" width="711.0" />
+            <Label layoutX="32.0" layoutY="352.0" prefHeight="17.0" prefWidth="122.0" text="Budgeting goals" textFill="#faf8f8" />
+            <TableView fx:id="budgetingT" layoutX="12.0" layoutY="381.0" prefHeight="155.0" prefWidth="711.0" style="-fx-background-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="categoryBT" prefWidth="127.20001220703125" resizable="false" style="-fx-background-color: light gray;" text="Category" />
+                  <TableColumn fx:id="budgetBT" prefWidth="141.5999755859375" resizable="false" style="-fx-background-color: light gray;" text="Budget" />
+                  <TableColumn fx:id="usedBT" prefWidth="155.20001220703125" resizable="false" style="-fx-background-color: light gray;" text="Used" />
+                  <TableColumn fx:id="remainingBT" prefWidth="156.79998779296875" resizable="false" style="-fx-background-color: light gray;" text="Remaining" />
+                  <TableColumn fx:id="progressBT" prefWidth="125.5999755859375" resizable="false" style="-fx-background-color: light gray;" text="Progress" />
+               </columns>
+            </TableView>
+            <Button alignment="CENTER_RIGHT" layoutX="595.0" layoutY="18.0" mnemonicParsing="false" onAction="#addGoalB" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;" text=" Add Goal" textFill="#faf5f5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView id="addGoalI" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Finaq/add_i.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="32.0" layoutY="85.0" prefHeight="30.0" prefWidth="78.0" text="Monthly:" textFill="#f7f5f5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <PieChart fx:id="budgetingC" layoutX="400.0" layoutY="84.0" prefHeight="241.0" prefWidth="315.0" />
+         </children>
+      </Pane>
+      <Pane id="advisor_pane" layoutX="255.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="8.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" height="148.0" layoutX="23.0" layoutY="107.0" stroke="WHITE" strokeType="INSIDE" width="200.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.33725491166114807" blue="0.41960784792900085" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="26.0" layoutY="120.0" prefHeight="17.0" prefWidth="195.0" text="Estimated Credit Score" textFill="#f7f5f5" />
+            <Label fx:id="creditScoreL" alignment="CENTER" layoutX="26.0" layoutY="144.0" prefHeight="46.0" prefWidth="195.0" text="N/A" textFill="#8e86ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="AI Advisor" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Let the bots crunch down the numbers for you." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="31.0" layoutY="217.0" mnemonicParsing="false" onAction="#simulateB" prefHeight="25.0" prefWidth="185.0" style="-fx-background-color: transparent;" text="Simulate" textFill="WHITE" underline="true" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" height="433.0" layoutX="466.0" layoutY="107.0" stroke="WHITE" strokeType="INSIDE" width="245.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.33725491166114807" blue="0.41960784792900085" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="490.0" layoutY="124.0" prefHeight="17.0" prefWidth="195.0" text="Financial Changes By Category" textFill="#f7f5f5" />
+            <Label id="categoryChangeL" fx:id="financialChangesL" alignment="CENTER" layoutX="491.0" layoutY="155.0" prefHeight="362.0" prefWidth="211.0" textFill="#8e86ff" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="21.0" layoutY="181.0" prefHeight="38.0" prefWidth="200.0" text="(This is generated from your financial history and may differ from your official score.)" textAlignment="CENTER" textFill="#f7f5f5" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" height="148.0" layoutX="244.0" layoutY="107.0" stroke="WHITE" strokeType="INSIDE" width="200.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.33725491166114807" blue="0.41960784792900085" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="247.0" layoutY="120.0" prefHeight="17.0" prefWidth="195.0" text="Top AI insight" textFill="#f7f5f5" />
+            <Label fx:id="insightL" alignment="CENTER" layoutX="252.0" layoutY="135.0" prefHeight="117.0" prefWidth="185.0" text="Not enough financial history yet. Continue using Finaq for a few months, and personalized insights will appear here." textAlignment="CENTER" textFill="#8e86ff" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="491.0" layoutY="141.0" prefHeight="17.0" prefWidth="195.0" text="(Comp. to last month)" textFill="#f7f5f5" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" height="258.0" layoutX="23.0" layoutY="281.0" stroke="WHITE" strokeType="INSIDE" width="414.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.33725491166114807" blue="0.41960784792900085" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="39.0" layoutY="292.0" prefHeight="17.0" prefWidth="383.0" text="Financial Forecast" textFill="#f7f5f5" />
+            <Pane layoutX="23.0" layoutY="314.0" prefHeight="200.0" prefWidth="414.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="Next Month:" textFill="#f7f5f5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="estimatedIncomeL" alignment="CENTER" layoutY="51.0" prefHeight="56.0" prefWidth="414.0" text="Income: $0" textFill="#00ff22">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="estimatedExpensesL" alignment="CENTER" layoutY="107.0" prefHeight="56.0" prefWidth="414.0" text="Expenses: $0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="estimatedSavingsL" alignment="CENTER" layoutY="173.0" prefHeight="38.0" prefWidth="414.0" text="Savings: $0" textFill="#8e86ff" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="30.0" prefHeight="21.0" prefWidth="369.0" text="(This feature will only work after at least 3 months of data.)" textAlignment="CENTER" textFill="#f7f5f5" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane id="settings_pane" layoutX="255.0" layoutY="-1.0" prefHeight="562.0" prefWidth="734.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="562.0" layoutX="-1.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="734.0">
+               <fill>
+                  <RadialGradient centerX="0.5309734850858165" centerY="0.4810606060606061" radius="0.7614678986575625">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.993270524899058">
+                           <color>
+                              <Color red="0.015454190783202648" green="9.356724913232028E-4" blue="0.06315789371728897" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.0235294122248888" green="0.003921568859368563" blue="0.18039216101169586" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="158.0" text="Settings" textFill="#f4f2f2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="52.0" prefHeight="21.0" prefWidth="429.0" text="Customize Finaq for your own needs." textFill="#999696">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

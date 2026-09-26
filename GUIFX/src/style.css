@@ -1,0 +1,76 @@
+.scroll-pane {
+    -fx-background: #2b2b2b;
+    -fx-background-color: #2b2b2b;
+}
+.scroll-bar {
+    -fx-background-color: #0b0b0b;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #0b0b0b;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar .track {
+    -fx-background-color: gray;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #333333;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white;
+}
+.chart-plot-background{
+	-fx-background-color: #0b0b0b;
+}
+.chart-horizontal-grid-lines{
+	-fx-stroke: gray;
+}
+.chart-vertical-grid-lines{
+	-fx-stroke: gray;
+}
+.axis-tick-mark{
+	-fx-stroke: white;
+}
+.table-view .column-header-background {
+    -fx-background-color: gray;
+}
+
+.table-view .column-header {
+    -fx-background-color: gray;
+}
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .viewport {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:filled {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(100,100,100,0.4); /* optional */
+}
+
+.table-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-border-color: transparent;
+}
+.radio-button{
+    -fx-text-fill: white;
+    -fx-background-color: #0e2336;
+}
