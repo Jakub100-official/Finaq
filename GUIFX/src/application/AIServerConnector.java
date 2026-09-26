@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class AIServerConnector {
 	
 	protected double result = 0;
-	private String host = "7.tcp.eu.ngrok.io";
+	private String host = "ngrok connector";
 	
 	private boolean numberIsVaild(double num) {
 		return Double.isFinite(num) && !Double.isNaN(num);
@@ -23,7 +23,7 @@ public class AIServerConnector {
 				Socket socket = new Socket(host, 27010);
 				PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 	            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-	            out.println("root:Password12345");
+	            out.println("username:password");
 	            boolean in = Boolean.parseBoolean(br.readLine());
 	            if(in) {
 	            	System.out.println("GET_CS:"+monthlyIncome+" "+monthlyExpenses+" "+savingsRate+" "+budgetGoal+" "+debtToIncomeRatio+" ");
