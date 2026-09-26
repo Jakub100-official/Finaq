@@ -27,9 +27,7 @@ public class Main extends Application {
 	protected Controller controller = null;
 
 	public static void main(String[] args) {
-		dop = new DataOperator("root", "Password12345");
-		/*dop.deleteRow("users", "ID", "p7tg446x7", Types.VARCHAR);
-		dop.deleteRow("users info", "ID", "p7tg446x7", Types.VARCHAR);*/
+		dop = new DataOperator("username", "password");
 		launch(args);
 	}
 	
