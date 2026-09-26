@@ -20,7 +20,7 @@ public class AIServerConnector {
 		if(numberIsVaild(monthlyIncome) && numberIsVaild(monthlyExpenses) && numberIsVaild(savingsRate) && numberIsVaild(budgetGoal) && numberIsVaild(debtToIncomeRatio)) {
 		
 			 try {
-				Socket socket = new Socket(host, 27010);
+				Socket socket = new Socket(host, 00000);
 				PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 	            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	            out.println("username:password");
