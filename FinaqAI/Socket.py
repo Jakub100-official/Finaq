@@ -9,7 +9,7 @@ class Socket:
     #Connects with clients, checks for username and a password, if correct returns a result of the NN
     def create_socket(self):
         with sc.socket(sc.AF_INET, sc.SOCK_STREAM) as s:
-            s.bind((self.host, 5000))
+            s.bind((self.host, 0000))
             s.listen()
             print("Server Started")
             while True:
